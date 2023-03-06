@@ -4,7 +4,7 @@ import { EventKeys } from "../../models/eventKeys.js";
 
 router.get('/getEventKeys', async (req, res) => {
   let eventKeys = await EventKeys.find()
-  res.json({ eventKeys, message: 'EventKeys auds success send!' });
+  res.json({ eventKeys, message: 'EventKeys success send!' });
 });
 
 router.post('/createEventKey', async (req, res) => {
@@ -19,7 +19,6 @@ router.post('/deleteEventKey', async (req, res) => {
 });
 
 router.post('/passEventKey', async (req, res) => {
-  console.log(req.body.update);
   await EventKeys.findOneAndUpdate({ id: req.body.id }, req.body.update)
   res.json({ message: 'EventKey success passed!' });
 });
