@@ -10,16 +10,16 @@ router.get('/getEventKeys', async (req, res) => {
 router.post('/createEventKey', async (req, res) => {
   let newEventKey = new EventKeys(req.body)
   newEventKey.save()
-  res.json({ message: 'EventKey success created!' }); 
+  res.json({ message: 'EventKey success created!' });
 });
 
 router.post('/deleteEventKey', async (req, res) => {
-  await EventKeys.deleteOne({ id: req.body.id })
+  await EventKeys.findByIdAndDelete(req.body.id)
   res.json({ message: 'EventKey success deleted!' });
 });
 
 router.post('/passEventKey', async (req, res) => {
-  await EventKeys.findOneAndUpdate({ id: req.body.id }, req.body.update)
+  await EventKeys.findByIdAndUpdate(req.body.id, req.body.update)
   res.json({ message: 'EventKey success passed!' });
 });
 

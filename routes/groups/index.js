@@ -14,8 +14,8 @@ router.post('/createGroup', async (req, res) => {
 });
 
 router.post('/deleteGroup', async (req, res) => {
-  await Groups.deleteOne({ name: req.body.name }) 
-  res.json({ message: `Group ${req.body.name} success deleted!` });
+  await Groups.findByIdAndDelete(req.body.id)
+  res.json({ message: 'Group success deleted!' });
 });
 
 export default router

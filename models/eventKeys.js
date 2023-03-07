@@ -16,8 +16,8 @@ const eventKeysSchema = new Schema({
         type: String,
         required: true
     },
-    id: {
-        type: Number,
+    date: {
+        type: String,
         required: true
     },
     timeToTakeKey: {

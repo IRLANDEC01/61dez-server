@@ -14,13 +14,14 @@ router.post('/createAud', async (req, res) => {
 });
 
 router.post('/deleteAud', async (req, res) => {
-  await Auds.deleteOne({ name: req.body.name })
-  res.json({ message: `Aud ${req.body.name} success deleted!` });
+  await Auds.findByIdAndDelete(req.body.id)
+  res.json({ message: 'Aud success deleted!' });
 });
 
 router.post('/updateStateAud', async (req, res) => {
   let aud = await Auds.findOne({ name: req.body.name })
-  await Auds.findOneAndUpdate({ name: req.body.name }, { isUsed: !aud.isUsed })
+  aud.isUsed = !aud.isUsed
+  await aud.save()
   res.json({ message: `Aud ${req.body.name}state updated!` });
 });
 
