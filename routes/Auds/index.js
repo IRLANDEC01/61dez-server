@@ -20,8 +20,8 @@ router.post('/deleteAud', async (req, res) => {
 
 router.post('/updateStateAud', async (req, res) => {
   try {
-    let aud = await Auds.find({ name: req.body.aud }) 
-    aud.isUsed = !aud.isUsed
+    let aud = await Auds.findOne({ name: req.body.aud }) 
+    aud.isUsed = !aud.isUsed 
     await aud.save()
     res.json({ message: `Aud state updated!` });
 
