@@ -23,4 +23,4 @@ router.post('/passEventKey', async (req, res) => {
   res.json({ message: 'EventKey success passed!' });
 });
 
-export default router
+export default router  
