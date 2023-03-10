@@ -5,6 +5,7 @@ import AudsRouter from "./routes/auds/index.js";
 import GroupsRouter from "./routes/groups/index.js";
 import EventKeysRouter from "./routes/eventKeys/index.js";
 import HistoryRouter from "./routes/history/index.js"
+import CurrentEKRouter from "./routes/currentEK/index.js"
 import cors from "cors"
 
 const PORT = 3001
@@ -18,6 +19,7 @@ app.use('/', AudsRouter)
 app.use('/', GroupsRouter)
 app.use('/', EventKeysRouter)
 app.use('/', HistoryRouter)
+app.use('/', CurrentEKRouter)
 
 async function start() {
   try {

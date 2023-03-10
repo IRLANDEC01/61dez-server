@@ -9,7 +9,12 @@ const groupsSchema = new Schema({
     },
     course: {
         type: String,
+        required: true
+    },
+    isBusy: {
+        type: Boolean,
+        default: false
     }
-
 })
+
 export const Groups = mongoose.model('groups', groupsSchema)

@@ -9,7 +9,7 @@ router.get('/getAuds', async (req, res) => {
 
 router.post('/createAud', async (req, res) => {
   let newAud = new Auds(req.body)
-  newAud.save()
+  await newAud.save()
   res.json({ message: `Aud ${req.body.name} success created!` });
 });
 
@@ -20,8 +20,8 @@ router.post('/deleteAud', async (req, res) => {
 
 router.post('/updateStateAud', async (req, res) => {
   try {
-    let aud = await Auds.findOne({ name: req.body.aud }) 
-    aud.isUsed = !aud.isUsed 
+    let aud = await Auds.findOne({ name: req.body.aud })
+    aud.isUsed = !aud.isUsed
     await aud.save()
     res.json({ message: `Aud state updated!` });
 

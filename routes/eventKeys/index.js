@@ -9,7 +9,7 @@ router.get('/getEventKeys', async (req, res) => {
 
 router.post('/createEventKey', async (req, res) => {
   let newEventKey = new EventKeys(req.body)
-  newEventKey.save()
+  await newEventKey.save()
   res.json({ message: 'EventKey success created!' });
 });
 

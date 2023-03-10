@@ -9,7 +9,7 @@ router.get('/getGroups', async (req, res) => {
 
 router.post('/createGroup', async (req, res) => {
   let newGroup = new Groups(req.body)
-  newGroup.save()
+ await newGroup.save()
   res.json({ message: `Group ${req.body.name} success created!` });
 });
 

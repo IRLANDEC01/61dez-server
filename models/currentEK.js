@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema
 
-const eventKeysSchema = new Schema({
+const currentEKSchema = new Schema({
     aud: {
         type: String,
         required: true
@@ -27,5 +27,4 @@ const eventKeysSchema = new Schema({
         type: String
     }
 })
-
-export const EventKeys = mongoose.model('eventKeys', eventKeysSchema)
+export const CurrentEK = mongoose.model('currentEK', currentEKSchema)
