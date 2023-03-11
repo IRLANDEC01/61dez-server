@@ -9,10 +9,6 @@ const audsSchema = new Schema({
     },
     notation: {
         type: String,
-    },
-    isUsed: {
-        type: Boolean,
-        default: false
     }
 
 })
